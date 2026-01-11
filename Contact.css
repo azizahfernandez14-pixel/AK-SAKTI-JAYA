@@ -1,0 +1,570 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CSS VARIABLES
+========================= */
+:root {
+    --primary: #001f3f;
+    --secondary: #003366;
+    --accent: #0ea5e9;
+    --light-bg: #f4f6f9;
+    --border: #e5e7eb;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--light-bg);
+    color: #333;
+    line-height: 1.8;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+.main-header {
+    position: relative;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 0 0;
+}
+
+/* ================================
+   TOP BAR (HEADER ATAS)
+================================ */
+.top-bar {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    padding: 10px 8%;          /* lebih rapat ke atas & kiri-kanan */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1000;
+}
+
+/* ================================
+   BRAND CONTAINER
+================================ */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ================================
+   LOGO GENERAL
+================================ */
+.brand-logo {
+    display: block;
+    width: auto;
+    object-fit: contain;
+}
+
+/* LOGO IKON (AK) */
+.brand-logo-icon {
+    height: 56px;
+}
+
+/* LOGO TEKS (SAKTI JAYA) */
+.brand-logo-text {
+    height: 40px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+    .top-bar {
+        padding: 10px 32px;
+    }
+
+    .brand-logo-icon {
+        height: 50px;
+    }
+
+    .brand-logo-text {
+        height: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 8px 20px;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand-logo-icon {
+        height: 44px;
+    }
+
+    .brand-logo-text {
+        height: 32px;
+    }
+}
+
+/* ==================================================
+   NAVBAR
+================================================== */
+.nav-bottom {
+    background: var(--primary);
+    margin-top: 5px;
+    padding: 0 8%;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* ⬅️ RATA KANAN */
+    align-items: center;
+    gap: 55px;
+    padding: 20px 0;
+}
+
+
+/* ITEM NAV */
+.nav-menu li {
+    position: relative; /* PENTING untuk dropdown */
+}
+
+.nav-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* GARIS BAWAH */
+.nav-menu li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--accent);
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+/* ==================================================
+   DROPDOWN PRODUCT & SERVICE
+================================================== */
+.has-dropdown {
+    position: relative;
+}
+
+/* DROPDOWN BOX */
+.dropdown {
+    position: absolute;
+    top: 115%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+
+    background: #001f3f;
+    border-radius: 12px;
+    padding: 10px 0;
+    min-width: 240px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}
+
+/* TAMPIL SAAT HOVER */
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ITEM DROPDOWN */
+.dropdown li {
+    list-style: none;
+}
+
+.dropdown li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+/* HOVER ITEM DROPDOWN */
+.dropdown li a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--accent);
+}
+
+/* PANAH KECIL */
+.has-dropdown > a::after {
+    content: " ▼";
+    font-size: 10px;
+}
+
+
+
+/* =========================
+   CONTACT SECTION (FULL DESKTOP)
+========================= */
+.contact {
+    width: 100%;
+    margin: 0;
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+/* WRAPPER KONTEN */
+.contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    text-align: center;
+}
+
+
+/* =========================
+   CONTACT BOX
+========================= */
+.contact-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+}
+
+
+/* ITEM */
+.contact-item {
+    background: #f8fafc;
+    padding: 50px 50px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ICON + TITLE */
+.contact-item h3 {
+    font-size: 20px;
+    color: #003366;
+    margin-bottom: 14px;
+}
+
+/* TEXT */
+.contact-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+}
+
+
+/* LINK */
+.contact-item a {
+    color: #001f3f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        margin: 0;               /* ⬅️ HAPUS MARGIN */
+        padding: 40px 25px 60px; /* ruang dalam, bukan luar */
+    }
+}
+
+}
+
+/* =========================
+   MAP & FORM WRAPPER
+========================= */
+.contact-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* =========================
+   GOOGLE MAP
+========================= */
+.contact-map iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+.contact-form {
+    background: #f8fafc;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    color: #001f3f;
+    margin-bottom: 25px;
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* INPUT & TEXTAREA */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #001f3f;
+    box-shadow: 0 0 0 3px rgba(0,31,63,0.1);
+}
+
+/* BUTTON PRIMARY */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #001f3f, #003366);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,31,63,0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+    .contact-extra {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-map iframe {
+        height: 350px;
+    }
+}
+
+/* ==================================================
+   FOOTER FULL WIDTH NAVY (ANTI CELAH)
+================================================== */
+.site-footer {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    background: linear-gradient(180deg, #001f3f, #003366);
+    color: #ffffff;
+}
+
+
+
+/* ==================================================
+   FOOTER CONTENT (CENTER AREA)
+================================================== */
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 80px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+}
+
+
+/* ==================================================
+   FOOTER BOX
+================================================== */
+.footer-box h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.footer-box h4 {
+    font-size: 15px;
+    margin-bottom: 14px;
+    color: #e5e7eb;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.footer-box p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d1d5db;
+}
+
+/* ==================================================
+   FOOTER LINKS
+================================================== */
+.footer-box a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 6px;
+    transition: 0.3s ease;
+}
+
+.footer-box a:hover {
+    color: #38bdf8;
+}
+
+/* ==================================================
+   COLUMN SEPARATOR (DESKTOP ONLY)
+================================================== */
+.footer-box {
+    position: relative;
+}
+
+.footer-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 1px;
+    height: 100%;
+    background: rgba(255,255,255,0.15);
+}
+
+.footer-box:last-child::after {
+    display: none;
+}
+
+/* ==================================================
+   FOOTER BOTTOM (FULL WIDTH)
+================================================== */
+.footer-bottom {
+    width: 100%;
+    background: rgba(0,0,0,0.35);
+    text-align: center;
+    padding: 22px 20px;
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+/* =========================
+   FOOTER TEXT ALIGN LEFT
+========================= */
+.footer-container {
+    text-align: left;
+}
+
+.footer-box {
+    text-align: left;
+}
+
+.footer-bottom {
+    text-align: center; /* copyright tetap tengah (opsional) */
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 80px 40px;
+    }
+
+    .footer-box::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 60px 30px;
+        text-align: center;
+    }
+}
